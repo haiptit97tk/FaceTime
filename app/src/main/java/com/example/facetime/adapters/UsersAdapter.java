@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facetime.R;
+import com.example.facetime.listener.UserListener;
 import com.example.facetime.models.User;
 
 import java.util.List;
@@ -18,8 +19,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
     private List<User> users;
 
-    public UsersAdapter(List<User> users) {
+    private UserListener userListener;
+
+    public UsersAdapter(List<User> users, UserListener userListener) {
         this.users = users;
+        this.userListener = userListener;
     }
 
     @NonNull
@@ -38,7 +42,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         return users.size();
     }
 
-    static class UserViewHolder extends RecyclerView.ViewHolder {
+    class UserViewHolder extends RecyclerView.ViewHolder {
         TextView textFistChar, textUserName, textEmail;
         ImageView imageAudio, imageVideo;
 
@@ -55,6 +59,12 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
             textFistChar.setText(user.fistName.substring(0,1));
             textUserName.setText(String.format("%s %s", user.fistName, user.lastName));
             textEmail.setText(user.email);
+            imageAudio.setOnClickListener(v -> {
+                userListener.initiateAudioMeeting(user);
+            });
+            imageVideo.setOnClickListener(v -> {
+                userListener.initiateVideoMeeting(user);
+            });
         }
     }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -60,6 +61,8 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.makeText(SignUpActivity.this, "Enter last name", Toast.LENGTH_SHORT).show();
             } else if (inputEmail.getText().toString().trim().isEmpty()) {
                 Toast.makeText(SignUpActivity.this, "Enter email    ", Toast.LENGTH_SHORT).show();
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(inputEmail.getText().toString().trim()).matches()) {
+                Toast.makeText(SignUpActivity.this, "Enter valid email", Toast.LENGTH_SHORT).show();
             } else if (inputPassword.getText().toString().trim().isEmpty()) {
                 Toast.makeText(SignUpActivity.this, "Enter password    ", Toast.LENGTH_SHORT).show();
             } else if (inputConfirmPassword.getText().toString().trim().isEmpty()) {
