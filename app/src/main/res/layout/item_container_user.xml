@@ -26,7 +26,59 @@
         app:layout_constraintTop_toTopOf="@id/textFistChar"
         android:layout_width="1dp"
         android:layout_height="1dp"/>
-    
+    <ImageView
+        android:id="@+id/imageVideoCall"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/_2sdp"
+        android:src="@drawable/ic_video_call"
+        app:layout_constraintBottom_toTopOf="@id/viewDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        app:tint="@color/colorPrimary" />
+    <ImageView
+        android:id="@+id/imageAudio"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/_4sdp"
+        android:src="@drawable/ic_audio"
+        app:layout_constraintBottom_toTopOf="@id/viewDivider"
+        app:layout_constraintEnd_toStartOf="@id/imageVideoCall"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        app:tint="@color/colorPrimary" />
+    <TextView
+        android:id="@+id/textUserName"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/ubuntu_medium"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintStart_toEndOf="@id/textFistChar"
+        app:layout_constraintBottom_toTopOf="@id/viewSupporter"
+        app:layout_constraintEnd_toStartOf="@id/imageAudio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/ubuntu_regular"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintEnd_toStartOf="@id/imageAudio"
+        app:layout_constraintStart_toEndOf="@id/textFistChar"
+        app:layout_constraintTop_toBottomOf="@id/viewSupporter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
     <View
         android:id="@+id/viewDivider"
         android:layout_marginStart="@dimen/_8sdp"
