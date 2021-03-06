@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,9 +54,9 @@ public class MainActivity extends AppCompatActivity implements UserListener {
             signOut();
         });
 
-        FirebaseInstallations.getInstance().getToken(true).addOnCompleteListener(task -> {
-            if (task.isSuccessful() && task.getResult().getToken() != null) {
-                sendFCMTokenToDatabase(task.getResult().getToken());
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                sendFCMTokenToDatabase(task.getResult());
             }
         });
         RecyclerView userRecyclerView = findViewById(R.id.userRecyclerView);

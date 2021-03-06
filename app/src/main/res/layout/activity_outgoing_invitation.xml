@@ -77,10 +77,10 @@
         android:background="@drawable/back_ground_reject_invitation"
         android:src="@drawable/ic_reject"
         android:padding="@dimen/_8sdp"
-        android:tint="@color/colorTextIcons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"/>
+        android:layout_height="@dimen/_40sdp"
+        app:tint="@color/colorTextIcons" />
 </androidx.constraintlayout.widget.ConstraintLayout>
