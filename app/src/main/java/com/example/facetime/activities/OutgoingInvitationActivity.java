@@ -47,12 +47,6 @@ public class OutgoingInvitationActivity extends AppCompatActivity {
 
         preferenceManager = new PreferenceManager(getApplicationContext());
 
-        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                inviterToken = task.getResult();
-            }
-        });
-
         ImageView imageMeetingType = findViewById(R.id.imageMeetingType);
         String meetingType = getIntent().getStringExtra("type");
         if (meetingType != null) {
@@ -78,9 +72,14 @@ public class OutgoingInvitationActivity extends AppCompatActivity {
             }
         });
 
-        if (meetingType != null && user != null) {
-            initiateMeeting(meetingType, user.token);
-        }
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                inviterToken = task.getResult();
+                if (meetingType != null && user != null) {
+                    initiateMeeting(meetingType, user.token);
+                }
+            }
+        });
     }
 
     private void initiateMeeting(String meetingType, String receiverToken) {

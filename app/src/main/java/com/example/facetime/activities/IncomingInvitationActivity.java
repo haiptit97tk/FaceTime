@@ -51,12 +51,14 @@ public class IncomingInvitationActivity extends AppCompatActivity {
         textUserName.setText(String.format("%s %s", firstName, getIntent().getStringExtra(Constants.KEY_LAST_NAME)));
         textEmail.setText(getIntent().getStringExtra(Constants.KEY_EMAIL));
 
+        String receiverToken = getIntent().getStringExtra(Constants.REMOTE_MSG_INVITER_TOKEN);
+
         imageAcceptInvitation.setOnClickListener(v -> {
-            sendInvitationResponse(Constants.REMOTE_MSG_INVITATION_ACCEPTED, getIntent().getStringExtra(Constants.REMOTE_MSG_INVITER_TOKEN));
+            sendInvitationResponse(Constants.REMOTE_MSG_INVITATION_ACCEPTED, receiverToken);
         });
 
         imageRejectInvitation.setOnClickListener(v -> {
-            sendInvitationResponse(Constants.REMOTE_MSG_INVITATION_REJECTED, getIntent().getStringExtra(Constants.REMOTE_MSG_INVITER_TOKEN));
+            sendInvitationResponse(Constants.REMOTE_MSG_INVITATION_REJECTED, receiverToken);
         });
     }
 
