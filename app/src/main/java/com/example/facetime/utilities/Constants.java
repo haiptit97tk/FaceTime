@@ -28,6 +28,8 @@ public class Constants {
     public static final String REMOTE_MSG_INVITATION_REJECTED = "rejected";
     public static final String REMOTE_MSG_INVITATION_CANCELLED = "cancelled";
 
+    public static final String REMOTE_MSG_MEETING_ROOM = "meetingRoom";
+
     public static HashMap<String, String> getRemoteMessageHeaders(){
         HashMap<String, String> headers = new HashMap<>();
         headers.put(Constants.REMOTE_MSG_AUTHORIZATION, "key=AAAAk02Mb10:APA91bFDV7s42OmN5kNwVEL_HBQGBrfPDWt2JjasDPqJpnq7paksXKURtTWIgKM_TXrxtyddr2TvKVZpEZhXSu-yYVRjcGRP2D2ySL5xERgadifeGnzBowvRjV90YHQDQu_iSMgicjBu");
